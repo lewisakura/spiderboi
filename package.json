@@ -1,0 +1,45 @@
+{
+  "name": "spiderboi",
+  "version": "1.0.0",
+  "description": "A web crawler written in TypeScript.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "web-crawler",
+    "crawler",
+    "spider"
+  ],
+  "author": "LewisTehMinerz",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.10",
+    "@types/jest": "^24.0.6",
+    "@types/node": "^11.9.4",
+    "@types/node-fetch": "^2.1.6",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "node-fetch": "^2.3.0",
+    "robots-parser": "^2.1.1"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
