@@ -4,7 +4,7 @@ describe('robots.txt', () => {
     it('should not error when provided an invalid robots.txt', () => {
         expect(new Crawler('https://example.org').readyUp()).resolves.toBeUndefined();
     });
-    
+
     it('should not error when provided a valid robots.txt', () => {
         expect(new Crawler('http://www.robotstxt.org').readyUp()).resolves.toBeUndefined();
     });
@@ -16,11 +16,12 @@ describe('crawling', () => {
     const newCrawler = async (url: string) => {
         crawler = new Crawler(url);
         await crawler.readyUp();
-    }
+    };
 
     crawler = new Crawler('https://example.org');
 
-    it('should error when trying to crawl when not ready', async () => await expect(crawler.crawl('/')).rejects.toThrow());
+    it('should error when trying to crawl when not ready', async () =>
+        await expect(crawler.crawl('/')).rejects.toThrow());
 
     // crawler ignores offsite links
     it('should return an empty array when crawling example.org', async () => {
