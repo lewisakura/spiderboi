@@ -1,6 +1,6 @@
 {
   "name": "spiderboi",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A web crawler written in TypeScript.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
