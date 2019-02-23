@@ -3,6 +3,9 @@ import Fetch from 'node-fetch';
 import * as RobotsParser from 'robots-parser';
 import { URL } from 'url';
 
+// tslint:disable-next-line: no-var-requires
+const version: string = require('../package.json').version;
+
 /**
  * A crawler. Respects <code>robots.txt</code> and will always use the user agent of <code>Spiderboi/[package version]</code>.
  */
@@ -58,7 +61,7 @@ class Crawler {
             return false;
         }
 
-        const page = await Fetch(url).then(res => res.text());
+        const page = await Fetch(url, { headers: { 'User-Agent': 'Spiderboi/' + version } }).then(res => res.text());
         const $ = cheerio.load(page);
 
         const anchors = $('a');
